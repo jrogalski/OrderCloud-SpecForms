@@ -11,8 +11,8 @@ If you are using a repository, we suggest adding this file to the **`/lib/oc`** 
 If you are using file overrides, create a new file override named **`lib/oc/ordercloud-specforms.js`** and add this file as the content by following these steps:
 
  1. Edit your 2.0 site
- 2. Go to ìCode Editorî tab
- 3. Click ìNew File Overrideî
+ 2. Go to ‚ÄúCode Editor‚Äù tab
+ 3. Click ‚ÄúNew File Override‚Äù
  4. Name this file **`lib/oc/ordercloud-specforms.js`**
  5. Place raw code from **`ordercloud-specforms.js`**  in the section below. Save.
 
@@ -20,7 +20,7 @@ If you are using file overrides, create a new file override named **`lib/oc/orde
 **Important!** Be sure to reference the new/updated JS files in the **`index.html`** file by following these steps:
 
  1. In Code Editor, locate your index.html file, hit edit. 
- 2. Add `<script src="lib/oc/ordercloud-specforms.js" data-group="resources"></script>` in the section with ìlib/ocî files. 
+ 2. Add `<script src="lib/oc/ordercloud-specforms.js" data-group="resources"></script>` in the section with ‚Äúlib/oc‚Äù files. 
  3. Add the external script reference for the octextboxfield.  Add `<script src="//cdn.ckeditor.com/4.4.7/basic/ckeditor.js" data-group="cdn"></script>`. 
  4. Save
 
@@ -28,7 +28,7 @@ If you are using file overrides, create a new file override named **`lib/oc/orde
 Inject the module into your app.module function.  For example, add a dependency for `OrderCloud-SpecForms` to the Four51.app module in the **`js/app.js`** file by following these steps. 
 
  1. In Code Editor, locate your **`js/app.js`** file, hit edit. 
- 2. Add **ëOrderCloud-SpecFormsí** into the file.
+ 2. Add **‚ÄòOrderCloud-SpecForms‚Äô** into the file.
  3. Save.
 
 # Directives
@@ -43,7 +43,7 @@ A directive that allows for masking input for variable specs. The key difference
   - hideprefix: Boolean value. If set to "true" prefix text will be hidden
   - hidesuffix: Boolean value. If set to "true" suffix text will be hidden
 - Example usage
-  - ``` <ocmaskfield customfield='Variant.Specs.Phone' mask='999.999.9999 x999'></ocmaskfield>```
+  - ``` <ocmaskfield customfield='Variant.Specs.SpecName' mask='999.999.9999 x999'></ocmaskfield>```
 - Notes
   - The plugin is an angular implementation of the Masked Input plugin for jQuery @ http://digitalbush.com/projects/masked-input-plugin/#license
   
@@ -57,7 +57,7 @@ A directive that enforces case specified for variable specs.
   - hideprefix: Boolean value. If set to "true" prefix text will be hidden
   - hidesuffix: Boolean value. If set to "true" suffix text will be hidden
 - Example usage
-  - ``` <occasefield customfield='Variant.Specs.Name' case='upper'></occasefield>```
+  - ``` <occasefield customfield='Variant.Specs.SpecName' case='upper'></occasefield>```
 
 ## octextfield
 
@@ -82,7 +82,7 @@ A directive for select lists. The result is a dropdown control that contains all
   - hideprefix: Boolean value. If set to "true" prefix text will be hidden
   - hidesuffix: Boolean value. If set to "true" suffix text will be hidden
 - Example usage
-  - ``` <ocselectionfield customfield='Variant.Specs.Options'></ocselectionfield>```
+  - ``` <ocselectionfield customfield='Variant.Specs.SpecName'></ocselectionfield>```
 - *Alternative Method in Storefront*
   - ``` <customselectionfield customfield='Variant.Specs.SpecName'></customselectionfield>``` 
 
@@ -93,7 +93,7 @@ A directive to the HTML5 File Upload control with Variable Specs. This directive
 - Properties
   - customfield: Required property. Specify the variable spec
 - Example usage
-  - ``` <ocfilefield customfield='Variant.Specs.Photo'></ocfilefield>```
+  - ``` <ocfilefield customfield='Variant.Specs.SpecName'></ocfilefield>```
 - *Alternative Method in Storefront*
   - ``` <customfilefield customfield='Variant.Specs.SpecName'></customfilefield>``` 
 
@@ -107,7 +107,7 @@ A directive to provide a calendar control for date selection. The spec must be a
   - hidesuffix: Boolean value. If set to "true" suffix text will be hidden
   - format: The format for displayed dates. Defaults to 'MM/dd/yyyy'
 - Example usage
-  - ``` <ocdatefield customfield='Variant.Specs.StartDate' format='dd-MM-yyyy'></ocdatefield>```
+  - ``` <ocdatefield customfield='Variant.Specs.SpecName' format='dd-MM-yyyy'></ocdatefield>```
 - *Alternative Method in Storefront*
   - ``` <customdatefield customfield='Variant.Specs.SpecName'></customdatefield>``` 
 
@@ -120,7 +120,7 @@ A directive to utilize the Angular Bootstrap [http://angular-ui.github.io/bootst
   - hideprefix: Boolean value. If set to "true" prefix text will be hidden
   - hidesuffix: Boolean value. If set to "true" suffix text will be hidden
 - Example usage
-  - ``` <octimefield customfield='Variant.Specs.StartTime'></octimefield>```
+  - ``` <octimefield customfield='Variant.Specs.SpecName'></octimefield>```
 - *Alternative Method in Storefront*
   - ``` <customtimefield customfield='Variant.Specs.SpecName'></customtimefield>``` 
 
@@ -134,9 +134,9 @@ A directive to expose a checkbox control and apply the defined value to the Spec
   - unchecked: The value assigned to the spec when the control state is not checked
   
 - Example usage
-  - ``` <occheckboxfield customfield='Variant.Specs.Approved' checked='Yes' unchecked='No'></occheckboxfield>```
+  - ``` <occheckboxfield customfield='Variant.Specs.SpecName' checked='value' unchecked='value'></occheckboxfield>```
 - *Alternative Method in Storefront*
-  - ``` <customcheckboxfield customfield='Variant.Specs.SpecName' checked='unchecked'></customcheckboxfield>``` 
+  - ``` <customcheckboxfield customfield='Variant.Specs.SpecName' checked='value' unchecked='value'></customcheckboxfield>``` 
 
 ## octextboxfield
 
@@ -145,9 +145,10 @@ A directive to create a ckeditor on the page and bind it to a model.
   - ng-model: This is the value you want to bind to.
 
 - Example usage
-  - ``` <textarea octextboxfield ng-model="Variant.Specs.AdditionalInformation.Value"></textarea> ```
+  - ``` <textarea octextboxfield ng-model="Variant.Specs.SpecName.Value"></textarea> ```
 
 - Important Note: if you are using the octextboxfield, in the index file you need to add an extra script:
 ```
 <script src="//cdn.ckeditor.com/4.4.7/basic/ckeditor.js" data-group="cdn"></script>
 ```
+- Support for text enhancements like bold, italics, and underline require a version of Pageflex that supports Document Actions.  Download the Resource Files to obtain instructions and code that supports user input to your Pageflex project via the toolbar.  http://blog.four51.com/wiki/index.php/Four51_Document_Actions
